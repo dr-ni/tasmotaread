@@ -12,13 +12,13 @@ all:
 	@echo "  sudo make uninstall"
 
 install:
-	$(INSTALL) -d $(PREFIX)/$(MANS)
+#	$(INSTALL) -d $(PREFIX)/$(MANS)
 	$(INSTALL) -m 0755 tasmotaread $(PREFIX)/$(BIN)
 	$(INSTALL) -m 0644 README.md $(DOCS)
 	$(INSTALL) -m 0644 LICENSE $(DOCS)
-	$(INSTALL) -m 0644 $(MANS)/tasmotaread.1 $(PREFIX)/$(MANS)
+#	$(INSTALL) -m 0644 $(MANS)/tasmotaread.1 $(PREFIX)/$(MANS)
 
 uninstall:
 	$(RM) $(PREFIX)/$(BIN)/tasmotaread
 	$(RMD) $(DOCS)
-	$(RM) $(PREFIX)/$(MANS)/tasmotaread.1
+#	$(RM) $(PREFIX)/$(MANS)/tasmotaread.1

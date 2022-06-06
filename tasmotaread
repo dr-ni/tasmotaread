@@ -12,7 +12,7 @@
 host=$1
 
 # option check
-if [ $# -lt 2 ]
+if [ $# -lt 1 ]
 then
   echo "Usage: $0 <host>"
   exit 1
