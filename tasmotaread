@@ -6,7 +6,7 @@
 #
 # A simple bash command-line tool for direct tasmota smart-meter requests.
 #
-# Requirements: curl must be installed.
+# Requirements: curl and jq must be installed.
 #
 #
 host=$1
