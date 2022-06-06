@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# tasmotaread
+# MIT License Copyright (c) 2022 dr-ni
+# https://github.com/dr-ni/tasmotaread
+#
+# A simple bash command-line tool for direct tasmota smart-meter requests.
+#
+# Requirements: curl must be installed.
+#
+#
+host=$1
+
+# option check
+if [ $# -lt 2 ]
+then
+  echo "Usage: $0 <host>"
+  exit 1
+fi
+# curl http://$host/cm?cmnd=POWER+TOGGLE
+curl -s http://$host/cm?cmnd=STATUS+8 | jq
