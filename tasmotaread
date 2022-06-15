@@ -18,4 +18,20 @@ then
   exit 1
 fi
 # curl http://$host/cm?cmnd=POWER+TOGGLE
-curl -s http://$host/cm?cmnd=STATUS+8 | jq
+out=$(curl -s http://$host/cm?cmnd=STATUS+8 | jq)
+if [ "$out" = "" ]
+then
+  sleep 3
+  out=$(curl -s http://$host/cm?cmnd=STATUS+8 | jq)
+fi
+if [ "$out" = "" ]
+then
+  sleep 3
+  out=$(curl -s http://$host/cm?cmnd=STATUS+8 | jq)
+fi
+if [ "$out" = "" ]
+then
+  sleep 3
+  out=$(curl -s http://$host/cm?cmnd=STATUS+8 | jq)
+fi
+[ "$out" = "" ] || echo "$out"
