@@ -23,8 +23,8 @@ sudo make uninstall
 ```
 tasmotaread <host>
 ```
+## Sonoff Basic E320 script
 ```
-Sonoff Basic E320:
 >D
 >B
 =>sensor53 r
