@@ -18,20 +18,16 @@ then
   exit 1
 fi
 # curl http://$host/cm?cmnd=POWER+TOGGLE
-out=$(curl -s http://$host/cm?cmnd=STATUS+8 | jq .)
-if [ "$out" = "" ]
-then
-  sleep 3
+
+for i in 1 2 3
+do
   out=$(curl -s http://$host/cm?cmnd=STATUS+8 | jq .)
-fi
-if [ "$out" = "" ]
-then
+  if [ "$out" != "" ]
+  then
+    echo "$out"
+    exit 0
+  fi
   sleep 3
-  out=$(curl -s http://$host/cm?cmnd=STATUS+8 | jq .)
-fi
-if [ "$out" = "" ]
-then
-  sleep 3
-  out=$(curl -s http://$host/cm?cmnd=STATUS+8 | jq .)
-fi
-[ "$out" = "" ] || echo "$out"
+done
+echo "Error: connection to $host failed"
+exit 1
